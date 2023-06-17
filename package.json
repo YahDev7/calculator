@@ -1,7 +1,6 @@
 {
   "name": "calculadora_goh",
   "private": true,
-  "homepage": "http://YahDev7.github.io/calculator",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
