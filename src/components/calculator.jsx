@@ -34,16 +34,27 @@ const ProfitCalculator = () => {
   };
 
   const calcularPorcentajeGananciaTotal = () => {
-    if (fabibra && ganancia && dolar) {
+    if (ganancia && dolar) {
       const valorIncluyendoIGV = parseFloat(fabibra) * (1 + 0.18);
-      const porcentaje =
-        (parseFloat(ganancia) /
-          (valorIncluyendoIGV * parseFloat(dolar) + parseFloat(ganancia))) *
-        100;
-      return isNaN(porcentaje) ? 0 : porcentaje.toFixed(2);
+      const valorTotalSoles = valorIncluyendoIGV * parseFloat(dolar);
+      let por=(parseFloat(ganancia)/  valorTotalSoles)*100
+      return por.toFixed(2)
     }
+    
     return 0;
+
+
+  /*   if (fabibra && ganancia && dolar) {
+      const valorIncluyendoIGV = parseFloat(fabibra) * (1 + 0.18);
+      const valorTotalSoles = valorIncluyendoIGV * parseFloat(dolar);
+      const gananciaTotal = valorTotalSoles + parseFloat(ganancia);
+      const porcentajeGanancia = (parseFloat(ganancia) / gananciaTotal) * 100;
+      return isNaN(porcentajeGanancia) ? 0 : porcentajeGanancia.toFixed(2);
+    }
+    return 0; */
   };
+  
+  
 
   return (
     <div className="container mx-auto max-w-md p-4">
@@ -92,19 +103,19 @@ const ProfitCalculator = () => {
       </div>
       <div className="mb-4">
         <label htmlFor="valor-incluyendo-igv" className="block mb-2">
-          Valor incluyendo 18% IGV:
+          Valor Dolar incluyendo 18% IGV:
         </label>
         <p id="valor-incluyendo-igv">${calcularValorIncluyendoIGV()}</p>
       </div>
       <div className="mb-4">
-        <label htmlFor="valor-total-dolares" className="block mb-2 text-green-800 font-bold">
-          Valor Total Soles:
+        <label htmlFor="valor-total-soles" className="block mb-2 text-green-800 font-bold">
+          Valor Total Soles Venta:
         </label>
-        <p id="valor-total-dolares" className="text-green-800 font-bold">${calcularValorTotalSoles()}</p>
+        <p id="valor-total-soles" className="text-green-800 font-bold">${calcularValorTotalSoles()}</p>
       </div>
       <div className="mb-4">
         <label htmlFor="valor-total-soles" className="block mb-2 text-orange-500 font-bold">
-          Valor Total en Soles Venta:
+          Valor Total en Soles :
         </label>
         <p id="valor-total-soles" className="text-orange-500 font-bold">S/{calcularValorTotalSoles_singanacia()}</p>
       </div>
