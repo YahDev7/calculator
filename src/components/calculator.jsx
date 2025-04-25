@@ -134,7 +134,6 @@ const ProfitCalculator = () => {
 
       <div className="grid grid-cols-2 gap-3">
 
-
       <div className="mb-4">
         <label htmlFor="porcentaje-ganancia" className=" block mb-2">
           Porcentaje de costos admin Total:
